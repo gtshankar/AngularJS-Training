@@ -1,0 +1,15 @@
+﻿    <h1>Create a new Event</h1>
+    <ng-form name="newEventForm" >
+        <label for="txtName">Name:</label>
+        <input type="text" id="txtName" required ng-model="evt.Name" />
+        <br />
+        <label for="txtDate">Date:</label>
+        <input type="text" id="txtDate" ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="evt.Date" required/>
+        <br />
+        <label for="txtEmail">Email:</label>
+        <input type="email" id="txtEmail" ng-model="evt.Email" />
+        <br />
+        <!---disabled="newEventForm.$invalid"-->
+        <input type="submit" class="btn btn-success" value="save" ng-click="saveEvent(evt,newEventForm)" />
+        <input type="submit" class="btn btn-danger" value="cancel" ng-click="cancelEvent()" />
+    </ng-form>

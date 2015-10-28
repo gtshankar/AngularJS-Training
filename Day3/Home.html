@@ -1,0 +1,34 @@
+<html ng-app="myroutingModule">
+<head>
+    <title></title>
+    <script src="angular.min.js"></script>
+    <script src="angular-route.js"></script>
+    <script src="App.js"></script>
+    <script src="Controller.js"></script>
+    <script src="EventController.js"></script>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <style>
+        input.ng-invalid.ng-dirty {
+            background-color: lightpink;
+        }
+
+        input.ng-valid.ng-dirty {
+            background-color: lightgreen;
+        }
+
+        input.ng-invalid.ng-pristine {
+            background-color: lightyellow;
+        }
+    </style>
+
+</head>
+<body >
+    <!--{{1+2}}-->
+    <a href="#/create_event/abc" class="btn btn-info">Create Event</a>
+    <a href="#/event_details/123" class="btn btn-info">Event Details</a>
+
+    <ng-view>
+
+    </ng-view>
+</body>
+</html>
