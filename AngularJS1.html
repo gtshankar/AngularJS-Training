@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="basicModule">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Angular JS Tutorial</title>
+<script src="angular.min.js"></script>
+<script>
+	var basicModule = angular.module('basicModule',[]);
+	basicModule.controller('basicController',function($scope){
+		//BUSINESS LOGIC HERE
+		$scope.Message = "Hello World!";
+		$scope.PersonalDetails = {Name:"sankar",Age:30,Sex:"M"};
+	});
+</script>
+</head>
+<body ng-controller="basicController">
+{{ Message }}
+<BR/>
+{{ PersonalDetails.Name }} is {{ PersonalDetails.Age}} years old
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script>
+
+//1st way
+var obj = new Object();
+obj.name = "Sankar";
+alert ("my name is "+ obj.name);
+
+//2 way - Literal Syntax
+var literalobj = {Name: 'Sankar', Location: 'Bengalure'};
+alert(literalobj.Name);
+
+//JSON
+
+var jsonObj = JSON.stringify(literalobj);
+alert ( "String to JSON=" +jsonObj);
+
+var jsobj = JSON.parse(jsonObj);
+alert("JSON to String=" +jsobj.Name);
+
+function Car() //declaraing class
+{
+	this.Name = 'TATA';
+	this.Speed = 110;
+	this.Accelerate  = function() {alert('inside car');}	
+}
+
+var carObj = new Car(); //Instantiation
+carObj.Accelerate();
+
+
+var car1 = function() //another way of delcaring obj and instantiating 
+{
+	this.Name = 'TATA';
+	this.Speed = 110;
+	this.Accelerate  = function() {alert('inside car');}	
+}
+
+var carObj1 = new Car1(); //Instantiation
+carObj1.Accelerate();
+
+//Dynamic prototypical inheritance
+
+function  JamesBondCar()
+{
+ this.Canfly = true;
+ this.CanSubmerge = true;
+}
+
+JamesBondCar.prototype = new Car();
+var jbc = new JamesBondCar();
+jbc.Accelerate;
+
+</script>
+
+</head>
+
+<body>
+<h1>Object in Javascript!</h1>
+</body>
+</html>

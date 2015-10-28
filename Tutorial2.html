@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Angular JS Tutorial</title>
+<script src="angular.min.js"></script>
+</head>
+<body >
+Pollution Level: <input type="range" min="1" max="100" ng-model="pollutionLevel">
+<div ng-if="pollutionLevel<60" ng-style="backgroundcolor:red">
+Pollution Indiator Less than 60! <strong>{{pollutionLevel}}</strong>
+</div>
+
+<div ng-if="pollutionLevel>60" ng-style="backgroundcolor:red">
+Pollution Indiator Greater than 60! <strong>{{pollutionLevel}}</strong>
+</div>
+
+</body>
+</html>

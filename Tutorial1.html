@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="eventModule">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Angular JS Tutorial</title>
+<script src="angular.min.js"></script>
+<script src="App.js"></script>
+<script src="Service.js"></script>
+<script src="EventController.js"></script>
+<link href="bootstrap.css" rel="stylesheet" />
+</head>
+<body ng-controller="eventController">
+<h1>{{TrainingDetails.Name}}</h1>
+<div>
+	<strong>Location: </strong>{{TrainingDetails.Location}}<br/>
+	<strong>Duration: </strong>{{TrainingDetails.Duration}}<br/>
+	<strong>Price: </strong>{{TrainingDetails.Price}}<br/>
+<!-- 	
+	<ul>
+		<li ng-repeat="session in TrainingDetails.Sessions">
+			{{session.name}}-{{session.level}}-{{session.duration}}
+		</li>
+	</ul>
+-->
+    Filters: <select ng-options="filter.Name for filter in levelFilters"
+        ng-model="selectedFilter">
+    <option value="">All</option>
+</select>
+    Order By: <select ng-model="selectedOrderBy">
+        <option value="">All</option>
+        <option value="name">Name</option>
+        <option value="level">Level</option>
+        <option value="vote">Vote</option>
+        <option value="duration">Duration</option>
+    </select>
+    Asc/Desc: <select ng-model="selectedAscDesc">
+        <option value="false">Ascending</option>
+        <option value="true">Descending</option>
+    </select>
+    <br\>selected Filter {{selectedFilter}} and OrderBy {{selectedOrderBy}} and AscDesc : {{selectedAscDesc}}
+
+
+	<table class="table table-condensed table-bordered table-striped table-responsive">
+		<tr>
+            <th>Votes</th>
+            <th>Name</th>
+			<th>Level</th>
+			<th>Duration</th>
+		</tr>
+        <tr ng-repeat="session in TrainingDetails.Sessions | filter:{level:selectedFilter.Name} | orderBy:selectedOrderBy | orderBy:selectedAscDesc">
+            <td>
+                <input type="button" class="btn btn-success" value="+" ng-click="upVoteCount(session)" />
+                <input type="button" class="btn btn-danger" value="-" ng-click="downVoteCount(session)" />
+                {{session.vote}}
+            </td>
+            <td>{{session.name}}</td>
+            <td>{{session.level  }}</td>
+            <td>{{session.duration }}</td>
+        </tr>		
+	</table>
+	<div ng-if="TrainingDetails.BooleanValue"> showing div1 only for true case </div>
+	<div ng-show="TrainingDetails.BooleanValue"> show/hide div2 </div>		
+    <br/>
+    Cities: <select ng-options="city.Name for city in cities"
+        ng-model="selectedCity"
+        ng-change="changeOfCity(selectedCity.Name)">
+    <option value="">--Select--</option>    
+    </select>
+    Speciality of the selected city {{selectedCity}} is {{Speciality}}
+	
+</div>
+</body>
+</html>

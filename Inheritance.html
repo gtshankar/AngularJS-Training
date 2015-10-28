@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<script>
+function Car() //declaraing class
+{
+	this.Name = 'TATA';
+	this.Speed = 110;
+	this.Accelerate  = function() {alert('inside car');}	
+}
+
+//var carObj = new Car(); //Instantiation
+//carObj.Accelerate();
+
+//Dynamic prototypical inheritance
+
+function  JamesBondCar()
+{
+ this.Canfly = true;
+ this.CanSubmerge = true;
+}
+
+JamesBondCar.prototype = new Car();
+var jbc = new JamesBondCar();
+jbc.Accelerate();
+
+
+function BatManCar()
+{
+ this.UseNitro = true;
+ 
+}
+
+BatManCar.prototype = new JamesBondCar();  //multilevel
+var bmc = new BatManCar();
+bmc.Accelerate();
+
+</script>
+
+</head>
+
+<body>
+<h1>Object in Javascript!</h1>
+</body>
+</html>
