@@ -1,0 +1,133 @@
+SUMEET WAJPE
+jsonlint.com
+Visual studio 2013 express web
+SPA - SINGLE SPAGE APPLICATION - AJAX FAMEWORK USE TO CREATE THAT
+WHAT IS ANGULAR.JS
+IT IS A MVC PATTERN ON THE CLIENT SIDE AND LOSSLY COUPLED
+
+CONTROLLER 
+	ARE FUNCTIONS FOR BUSINESS LOGIC
+	MODEL OPERATION (CRUD)
+MODEL
+	JS OBJECT
+	JSON
+	JS ARRAY
+VIEW
+	VIEW BINDS WITH MODEL
+	WE HAVE TEMPLATES, EXPRESSIONS AND DIRECTIVE
+
+ANGULARJS.ORG POWERED BY GOOGLE
+https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js	
+https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js
+
+ng-app PRE-DEFINED ANGULAR DIRECTIVE.  IT IS THE SCOPE OF THE APPLICATION
+
+1) Module is like a package
+2) Controller is a function
+scope is a container of model (data) and message is the model
+
+new application
+Module -> eventModule
+Controller -> eventController
+Model -> TrainingDetails (Object) -> Name(String), Location(String), Duration(String), Price (Number)
+
+CTRL+SHIFT+I = DEVELOPER TOOL
+
+DIRECTIVES * are allways assoicated with view
+ng-rpeat just like foreach
+BINDINGS:
+ATTACHING THE DATA WITH THE VIEW.  THERE ARE 2 WAYS
+I 1 WAY -> READONLY - SOURCE TO DESTIATION IS THE ONE WAY BINDING
+THERE ARE 2 TECHNIQUES FOR 1 WAY BINDING
+1) EXPRESSION {{}} ex: <H1>{{TrainingDetails.Name}}
+2) ng-bind ex: <h1 ng-bind="TrainingDetails.Name"></hr>
+   ng-bind-template ex: <h1 ng-bind-template "some text" {{}}>
+II 2 WAY -> DESTIATION WILL CHANGE THE MODEL
+  bg-model ex: <input type="text" ng-model="TrainingDetails.Name" />
+
+ng-src for image location <img ng-src="{{TrainingDetails.ImageLoc}}} "/>  
+ng-non-bindable it will not evaluate the expression ex: <p ng-non-bindable>Non Bindable: {{1+2}}></p>
+ng-init will initialize with value ex: <input type="text" ng-model="myTextData" ng-init="myTextData='Initial Value'"/>
+ng-if ex: 1) <div ng-if=""> showing only for true case </div>
+		  2) <div ng-if="myTextDate=='Capgemini'"> show the div </div>
+ng-show ex: <div ng-show="TrainingDetails.BooleanValue"> show/hide div </div>		  
+ng-class to apply the CSS ex: <div ng-class="classToBeApplied">some div content</div>
+ng-style for direct css application same example 
+ng-switch like the switch case in other languages
+	Enter a person name: <input type="text" ng-model="personName" />
+	<br/>
+	<div ng-switch on="personName">
+		<p ng-switch-default>The person name goes here... </p>
+		<p ng-switch-when="Sachin">{{personName}}</p>
+		<p ng-switch-when="Sehwag">{{personName}}</p>
+	</div>
+
+input type range	
+
+FILTERS
+filters are like where clause in SQL
+1) filters modify the output
+2) filterout subset of data
+
+<strong>Price: </strong>{{TrainingDetails.Price | number:2 }} displays 5,000.00
+<strong>Price: </strong>{{TrainingDetails.Price | currency:"USD$" }} displays USD$5,000.00
+FILTERS
+uppercase
+lowercase
+currency
+number
+date:'short'
+date:'MM-dd-yyyy'
+limitTo:3
+work with Strings
+{{['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'] | filter:'e'}} output contains 'e' substring Tuesday, Wednesday
+working with object too
+{{FilterValues | filter:{Location:'Hyderabad'} }}
+orderBy:['Name']:true/false *true means descending order
+
+Object Oriented with Javascript
+Directives
+FILTERS
+
+run method will run initial data setup
+var basicModule = angular.module('basicModule,[]).run(function ($rootScope} {
+$rootScope.myTextData='Intial Value";});
+
+hit test for publisher/subscriber design pattern
+
+SERVICES - 
+  - ARE RE-USABLE FUNCTIONALITY CODE
+  - SERVICES ARE OBJECTS
+  - INSTANTIATED JUST ONCE IN THE APPLICATION
+  - AND IT IS DEFINED IN MODULE
+  - STEPS:
+    - DEFINE THE SERVICE BY USING FACTORY METHOD OR SERVICE METHOD 
+  - INJECTED INSIDE THE CONTORL 	
+  
+CUSTOM DIRECTIVES  
+	CONTROLLER.JS
+		var eventModule = angular.module('eventModule',[]);
+		eventModule.directive('userInfo',function(){
+			return {template : <b>WELCOME</b>',restrict:'EAC'}
+		});
+
+  - TO CREATE CUSTOM UI
+  - WORK IN 3 WAYS
+    - ATTRIBUTE (DEFAULT)
+	  <DIV user-info></DIV>
+	- ELEMENT
+	  <USER-INFO>
+	  </USER-INFO>
+	- CLASS
+	  <DIV CLASS="USER-INFO">
+
+TESTING
+  - ANGULAR JS IS UNIT TESTABLE
+  - ANGULAR JS IS A WEBSERVICE FOR JAVASCRIPT
+  - KARMA TOOL  WORKS WITH NODE.JS ENGINE
+  - INSTALL ANGULAR JS
+  - EXECUTE C:\Program Files\nodejs>npm install -g karma
+  
+  NODE JS (ENGINE) -> KARMA (TESTING FRAMEWORK) -> JASMINE ( TO WRITE TEST API)
+  C:\Program Files\nodejs>karma init
+  C:\Program Files\nodejs\test>karma start karma.conf.js
